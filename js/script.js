@@ -1,4 +1,4 @@
-/ ========================= 
+// ========================= 
 // FONDO DE ESTRELLAS
 // =========================
 const canvas = document.getElementById("stars");
