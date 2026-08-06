@@ -1,210 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Para Anto ❤️</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-            padding: 20px;
-        }
+    <link rel="stylesheet" href="css/style.css">
 
-        /* Estrellas de fondo */
-        #stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-        }
-
-        .star {
-            position: absolute;
-            background: #ffffff;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-        }
-
-        /* Pantalla 1: Portada Inicial */
-        #pantalla-inicio {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            min-height: 70vh;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #66fcf1;
-            text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
-            margin: 0;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #45a29e;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        .btn-start {
-            padding: 16px 36px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0b0c10;
-            background-color: #66fcf1;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.4);
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .btn-start:hover {
-            transform: scale(1.05);
-            background-color: #ffffff;
-        }
-
-        /* Pantalla 2: Galería / Recuerdos (Oculta al principio) */
-        #pantalla-recuerdos {
-            display: none; /* Se activa al hacer clic */
-            flex-direction: column;
-            gap: 25px;
-            text-align: left;
-            width: 100%;
-            padding: 20px 0;
-        }
-
-        .card {
-            background: rgba(31, 40, 51, 0.9);
-            border: 1px solid rgba(102, 252, 241, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-        }
-
-        .card h2 {
-            color: #66fcf1;
-            margin-bottom: 12px;
-            font-size: 1.6rem;
-        }
-
-        .card p {
-            line-height: 1.6;
-            color: #e5e5e5;
-            font-size: 1.1rem;
-        }
-
-        /* Boton para volver al inicio opcional */
-        .btn-volver {
-            align-self: center;
-            margin-top: 15px;
-            background: transparent;
-            border: 1px solid #45a29e;
-            color: #45a29e;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1rem; }
-            .card { padding: 20px; }
-        }
-    </style>
 </head>
+
 <body>
 
-    <div id="stars"></div>
+    <!-- Fondo de estrellas -->
+    <canvas id="stars"></canvas>
 
-    <div class="container">
-        <!-- PANTALLA 1: PORTADA -->
-        <div id="pantalla-inicio">
-            <h1>Para Anto ❤️</h1>
-            <p class="subtitle">"Cada paso de nuestro viaje es un recuerdo que guardo para siempre."</p>
-            <button class="btn-start" onclick="mostrarRecuerdos()">
-                Comenzar nuestro viaje
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section id="hero" class="hero">
+
+        <div class="hero-content">
+
+            <h1 id="tituloHero">
+                Hola, amor...
+            </h1>
+
+            <p id="textoHero">
+
+                Si encontraste este QR...
+
+                es porque descubriste el pequeño secreto
+                que escondí detrás de tu regalo.
+
+            </p>
+
+            <p class="hero-frase">
+
+                No encontré un regalo capaz de resumir
+                todo lo que significás para mí.
+
+                <br><br>
+
+                Entonces decidí regalarte
+                nuestros recuerdos.
+
+            </p>
+
+            <button id="btnComenzar">
+
+                ❤️ Comenzar nuestro viaje
+
             </button>
+
         </div>
 
-        <!-- PANTALLA 2: CONTENIDO (SE ACTIVA AL HACER CLIC) -->
-        <div id="pantalla-recuerdos">
-            <div class="card">
-                <h2>Nuestro Viaje Juntos</h2>
-                <p>Escribí acá tu mensaje principal o la deducción que quieras expresarle a Anto.</p>
-            </div>
+    </section>
 
-            <div class="card">
-                <h2>Un Momento Especial</h2>
-                <p>Acá podés agregar otra reseña, fecha especial o historia que quieras compartir.</p>
-            </div>
+    <!-- ========================= -->
+    <!-- ESCENA 1 -->
+    <!-- ========================= -->
 
-            <button class="btn-volver" onclick="mostrarInicio()">← Volver al inicio</button>
+    <section class="scene">
+
+        <img src="img/Comienzo.jpg" alt="Comienzo">
+
+        <div class="texto">
+
+            <h2>
+
+                Toda historia tiene un comienzo.
+
+            </h2>
+
+            <p>
+
+                La nuestra empezó mucho antes
+                de imaginar todo lo que viviríamos.
+
+            </p>
+
         </div>
-    </div>
 
-    <script>
-        // Estrellas
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 60; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3 + 1}px`;
-            star.style.height = star.style.width;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 3}s`;
-            starsContainer.appendChild(star);
-        }
+    </section>
 
-        // Cambio de pantallas al hacer clic
-        function mostrarRecuerdos() {
-            document.getElementById('pantalla-inicio').style.display = 'none';
-            document.getElementById('pantalla-recuerdos').style.display = 'flex';
-            window.scrollTo(0, 0);
-        }
+    <!-- ========================= -->
+    <!-- ESCENA 2 -->
+    <!-- ========================= -->
 
-        function mostrarInicio() {
-            document.getElementById('pantalla-recuerdos').style.display = 'none';
-            document.getElementById('pantalla-inicio').style.display = 'flex';
-            window.scrollTo(0, 0);
-        }
-    </script>
+    <section class="scene">
+
+        <img src="img/Comienzo2.jpg" alt="Comienzo">
+
+        <div class="texto">
+
+            <h2>
+
+                Sin hacer ruido...
+
+            </h2>
+
+            <p>
+
+                Llegaste a mi vida
+                y empezaste a cambiarla para siempre.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- ESCENA 3 -->
+    <!-- ========================= -->
+
+    <section class="scene">
+
+        <img src="img/Comienzo3.jpg" alt="Comienzo">
+
+        <div class="texto">
+
+            <h2>
+
+                Y sin darnos cuenta...
+
+            </h2>
+
+            <p>
+
+                Ya éramos un "nosotros".
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- ESCENA 4 -->
+    <!-- ========================= -->
+
+    <section class="scene">
+
+        <img src="img/Nosotros.jpg" alt="Nosotros">
+
+        <div class="texto">
+
+            <h2>
+
+                Después llegaron los sueños.
+
+            </h2>
+
+            <p>
+
+                Los viajes.
+
+                Las risas.
+
+                Los abrazos.
+
+                Los proyectos.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
