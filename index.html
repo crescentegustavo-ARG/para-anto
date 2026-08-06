@@ -1,180 +1,192 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Para Anto ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
+        /* Estrellas de fondo */
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Portada */
+        .hero-content {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #66fcf1;
+            text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #45a29e;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .btn-start {
+            margin-top: 25px;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #0b0c10;
+            background-color: #66fcf1;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-start:hover {
+            transform: scale(1.08);
+            background-color: #ffffff;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Galería de Recuerdos */
+        #galeria {
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(31, 40, 51, 0.8);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .card h2 {
+            color: #66fcf1;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #e5e5e5;
+            font-size: 1.05rem;
+        }
+
+        .card img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; }
+            .container { width: 95%; }
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- Fondo de estrellas -->
-    <canvas id="stars"></canvas>
+    <div id="stars"></div>
 
-    <!-- ========================= -->
-    <!-- HERO -->
-    <!-- ========================= -->
-
-    <section id="hero" class="hero">
-
-        <div class="hero-content">
-
-            <h1 id="tituloHero">
-                Hola amor...
-            </h1>
-
-            <p id="textoHero">
-
-                Si encontraste este QR...
-
-                es porque descubriste el pequeño secreto
-                que escondí detrás de tu regalo.
-
-            </p>
-
-            <p class="hero-frase">
-
-                No encontré un regalo capaz de resumir
-                todo lo que significás para mí.
-
-                <br><br>
-
-                Entonces decidí regalarte
-                nuestros recuerdos.
-
-            </p>
-
-            <button id="btnComenzar">
-
-                ❤️ Comenzar nuestro viaje
-
+    <div class="container">
+        <!-- Portada Inicial -->
+        <section class="hero-content">
+            <h1>Para Anto ❤️</h1>
+            <p class="subtitle">"Cada paso de nuestro viaje es un recuerdo que guardo para siempre."</p>
+            <button class="btn-start" onclick="document.getElementById('galeria').scrollIntoView({behavior: 'smooth'})">
+                Comenzar nuestro viaje
             </button>
+        </section>
 
-        </div>
+        <!-- Galería donde cae el botón -->
+        <main id="galeria">
+            <div class="card">
+                <h2>Nuestro Viaje Juntos</h2>
+                <p>Acá podés escribir el texto o mensaje especial que quieras dedicarle a Anto.</p>
+            </div>
 
-    </section>
+            <!-- Podés copiar y pegar este bloque para sumar más mensajes -->
+            <div class="card">
+                <h2>Otro Momento Especial</h2>
+                <p>Agregá acá otra anécdota o recuerdo.</p>
+            </div>
+        </main>
+    </div>
 
-    <!-- ========================= -->
-    <!-- ESCENA 1 -->
-    <!-- ========================= -->
-
-    <section class="scene">
-
-        <img src="img/Comienzo.jpg" alt="Comienzo">
-
-        <div class="texto">
-
-            <h2>
-
-                Toda historia tiene un comienzo.
-
-            </h2>
-
-            <p>
-
-                La nuestra empezó mucho antes
-                de imaginar todo lo que viviríamos.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- ESCENA 2 -->
-    <!-- ========================= -->
-
-    <section class="scene">
-
-        <img src="img/Comienzo2.jpg" alt="Comienzo">
-
-        <div class="texto">
-
-            <h2>
-
-                Sin hacer ruido...
-
-            </h2>
-
-            <p>
-
-                Llegaste a mi vida
-                y empezaste a cambiarla para siempre.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- ESCENA 3 -->
-    <!-- ========================= -->
-
-    <section class="scene">
-
-        <img src="img/Comienzo3.jpg" alt="Comienzo">
-
-        <div class="texto">
-
-            <h2>
-
-                Y sin darnos cuenta...
-
-            </h2>
-
-            <p>
-
-                Ya éramos un "nosotros".
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- ESCENA 4 -->
-    <!-- ========================= -->
-
-    <section class="scene">
-
-        <img src="img/Nosotros.jpg" alt="Nosotros">
-
-        <div class="texto">
-
-            <h2>
-
-                Después llegaron los sueños.
-
-            </h2>
-
-            <p>
-
-                Los viajes.
-
-                Las risas.
-
-                Los abrazos.
-
-                Los proyectos.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <script src="js/script.js"></script>
-
+    <script>
+        // Generador automático de estrellas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 70; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3 + 1}px`;
+            star.style.height = star.style.width;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
-
 </html>
