@@ -200,3 +200,34 @@ button{
     opacity: 1;
     transform: translateY(0);
 }
+/* ========================= */
+/* CARTA */
+/* ========================= */
+
+.carta{
+    max-width: 750px;
+}
+
+.carta p{
+    font-style: italic;
+    font-size: 30px;
+    line-height: 2;
+    opacity: .95;
+}
+
+.carta-apertura{
+    font-size: 44px !important;
+    font-style: italic;
+    margin-bottom: 30px;
+    opacity: 1 !important;
+}
+
+@media(max-width:768px){
+    .carta p{
+        font-size: 21px;
+        line-height: 1.8;
+    }
+    .carta-apertura{
+        font-size: 30px !important;
+    }
+}
