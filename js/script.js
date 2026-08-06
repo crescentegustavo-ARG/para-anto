@@ -5,7 +5,7 @@ const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+ 
 let estrellas = [];
 for (let i = 0; i < 300; i++) {
     estrellas.push({
@@ -15,7 +15,7 @@ for (let i = 0; i < 300; i++) {
         o: Math.random()
     });
 }
-
+ 
 function dibujar() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     estrellas.forEach(e => {
@@ -27,12 +27,12 @@ function dibujar() {
     requestAnimationFrame(dibujar);
 }
 dibujar();
-
+ 
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
-
+ 
 // =========================
 // BOTON "COMENZAR NUESTRO VIAJE"
 // =========================
@@ -43,14 +43,19 @@ if (btnComenzar) {
         if (primeraEscena) {
             primeraEscena.scrollIntoView({ behavior: "smooth" });
         }
+        const musica = document.getElementById("musica");
+        if (musica) {
+            musica.volume = 0.5;
+            musica.play();
+        }
     });
 }
-
+ 
 // =========================
 // APARICION SUAVE DE CADA ESCENA AL HACER SCROLL
 // =========================
 const escenas = document.querySelectorAll(".scene");
-
+ 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -58,9 +63,9 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.25 });
-
+ 
 escenas.forEach(escena => observer.observe(escena));
-
+ 
 const btnMusica = document.getElementById("btnMusica");
 const musicaEl = document.getElementById("musica");
  
