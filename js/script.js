@@ -60,3 +60,18 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.25 });
 
 escenas.forEach(escena => observer.observe(escena));
+
+const btnMusica = document.getElementById("btnMusica");
+const musicaEl = document.getElementById("musica");
+ 
+if (btnMusica && musicaEl) {
+    btnMusica.addEventListener("click", () => {
+        if (musicaEl.paused) {
+            musicaEl.play();
+            btnMusica.classList.remove("pausado");
+        } else {
+            musicaEl.pause();
+            btnMusica.classList.add("pausado");
+        }
+    });
+}

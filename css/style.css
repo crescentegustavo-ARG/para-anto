@@ -227,3 +227,29 @@ button:hover{
     }
 
 }
+.btn-musica{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 999;
+    transition: .3s;
+}
+ 
+.btn-musica:hover{
+    background: rgba(255,255,255,.3);
+    transform: scale(1.08);
+}
+ 
+.btn-musica.pausado{
+    opacity:.5;
+}
+ 
