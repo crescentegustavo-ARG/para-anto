@@ -4,106 +4,186 @@
     box-sizing:border-box;
 }
 
-body{
-
-    background:#000;
-
-    overflow:hidden;
-
-    font-family:Georgia, serif;
-
+html{
+    scroll-behavior:smooth;
 }
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:Georgia, serif;
+    overflow-x:hidden;
+}
+
+/* Fondo de estrellas */
 
 #stars{
-
     position:fixed;
-
-    top:0;
-
-    left:0;
-
+    inset:0;
     width:100%;
-
     height:100%;
-
+    z-index:-1;
 }
 
+/* ========================= */
+/* HERO */
+/* ========================= */
+
 .hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
 
-    width:100vw;
+.hero-content{
+    max-width:850px;
+}
 
-    height:100vh;
+.hero h1{
+    font-size:68px;
+    margin-bottom:30px;
+}
+
+#textoHero{
+    font-size:25px;
+    line-height:1.8;
+    margin-bottom:35px;
+    opacity:.92;
+}
+
+.hero-frase{
+    font-size:30px;
+    font-style:italic;
+    line-height:1.8;
+    margin-bottom:60px;
+}
+
+button{
+    background:white;
+    color:black;
+    border:none;
+    padding:20px 55px;
+    border-radius:50px;
+    font-size:22px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* ========================= */
+/* ESCENAS */
+/* ========================= */
+
+.scene{
+
+    min-height:100vh;
 
     display:flex;
+
+    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
 
+    padding:70px 25px;
+
+}
+
+.scene img{
+
+    width:90%;
+
+    max-width:950px;
+
+    border-radius:18px;
+
+    margin-bottom:45px;
+
+    box-shadow:0 0 40px rgba(255,255,255,.12);
+
+}
+
+.texto{
+
+    max-width:900px;
+
     text-align:center;
 
-    color:white;
+}
 
-    position:relative;
+.texto h2{
+
+    font-size:46px;
+
+    margin-bottom:25px;
 
 }
 
-.contenido{
+.texto p{
 
-    max-width:700px;
+    font-size:24px;
 
-    padding:40px;
-
-}
-
-h1{
-
-    font-size:70px;
-
-    margin-bottom:40px;
-
-}
-
-p{
-
-    font-size:25px;
-
-    line-height:45px;
+    line-height:1.8;
 
     opacity:.9;
 
 }
 
-.frase{
+/* ========================= */
+/* CELULAR */
+/* ========================= */
 
-    margin-top:50px;
+@media(max-width:768px){
 
-    font-size:30px;
+.hero h1{
 
-    font-style:italic;
+    font-size:42px;
+
+}
+
+#textoHero{
+
+    font-size:20px;
+
+}
+
+.hero-frase{
+
+    font-size:22px;
 
 }
 
 button{
 
-    margin-top:70px;
+    width:100%;
 
-    padding:20px 60px;
-
-    border:none;
-
-    border-radius:50px;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    transition:.4s;
+    font-size:20px;
 
 }
 
-button:hover{
+.scene img{
 
-    transform:scale(1.05);
+    width:100%;
+
+}
+
+.texto h2{
+
+    font-size:32px;
+
+}
+
+.texto p{
+
+    font-size:19px;
+
+}
 
 }
