@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth; /* Hace que el desplazamiento sea fluido */
+        }
+
         body {
             background-color: #0b0c10;
             color: #c5c6c7;
@@ -20,7 +24,7 @@
             position: relative;
         }
 
-        /* Estrellas de fondo */
+        /* Fondo Estrellado */
         #stars {
             position: fixed;
             top: 0;
@@ -55,9 +59,9 @@
             text-align: center;
         }
 
-        /* Portada */
+        /* Seccion Hero / Portada */
         .hero-content {
-            min-height: 90vh;
+            min-height: 100vh; /* Ocupa toda la pantalla de inicio */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -99,19 +103,20 @@
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
         }
 
-        /* Galería de Recuerdos */
+        /* Seccion Destino del Clic */
         #galeria {
-            padding: 50px 0;
+            min-height: 100vh;
+            padding: 60px 0;
             display: flex;
             flex-direction: column;
             gap: 30px;
         }
 
         .card {
-            background: rgba(31, 40, 51, 0.8);
+            background: rgba(31, 40, 51, 0.85);
             border: 1px solid rgba(102, 252, 241, 0.2);
             border-radius: 15px;
-            padding: 25px;
+            padding: 30px;
             backdrop-filter: blur(5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             text-align: left;
@@ -119,23 +124,14 @@
 
         .card h2 {
             color: #66fcf1;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
         }
 
         .card p {
             line-height: 1.6;
             color: #e5e5e5;
-            font-size: 1.05rem;
-        }
-
-        .card img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -154,28 +150,27 @@
         <section class="hero-content">
             <h1>Para Anto ❤️</h1>
             <p class="subtitle">"Cada paso de nuestro viaje es un recuerdo que guardo para siempre."</p>
-            <button class="btn-start" onclick="document.getElementById('galeria').scrollIntoView({behavior: 'smooth'})">
+            <button class="btn-start" id="btnComenzar">
                 Comenzar nuestro viaje
             </button>
         </section>
 
-        <!-- Galería donde cae el botón -->
+        <!-- Seccion a la que baja el boton -->
         <main id="galeria">
             <div class="card">
                 <h2>Nuestro Viaje Juntos</h2>
-                <p>Acá podés escribir el texto o mensaje especial que quieras dedicarle a Anto.</p>
+                <p>Acá podés escribir el primer mensaje o recuerdo especial para Anto.</p>
             </div>
 
-            <!-- Podés copiar y pegar este bloque para sumar más mensajes -->
             <div class="card">
                 <h2>Otro Momento Especial</h2>
-                <p>Agregá acá otra anécdota o recuerdo.</p>
+                <p>Acá podés seguir sumando texto o fotos de sus momentos.</p>
             </div>
         </main>
     </div>
 
     <script>
-        // Generador automático de estrellas
+        // Animacion de estrellas
         const starsContainer = document.getElementById('stars');
         for (let i = 0; i < 70; i++) {
             const star = document.createElement('div');
@@ -187,6 +182,12 @@
             star.style.animationDelay = `${Math.random() * 3}s`;
             starsContainer.appendChild(star);
         }
+
+        // Script para asegurar que el boton SIEMPRE baje
+        document.getElementById('btnComenzar').addEventListener('click', function() {
+            const destino = document.getElementById('galeria');
+            destino.scrollIntoView({ behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
