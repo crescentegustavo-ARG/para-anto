@@ -11,7 +11,7 @@ html{
 body{
     background:#000;
     color:#fff;
-    font-family:Georgia, serif;
+    font-family:'Playfair Display', Georgia, serif;
     overflow-x:hidden;
 }
 
@@ -43,7 +43,9 @@ body{
 }
 
 .hero h1{
-    font-size:68px;
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size:80px;
     margin-bottom:30px;
 }
 
@@ -67,6 +69,7 @@ button{
     border:none;
     padding:20px 55px;
     border-radius:50px;
+    font-family:'Playfair Display', Georgia, serif;
     font-size:22px;
     cursor:pointer;
     transition:.35s;
@@ -74,6 +77,7 @@ button{
 
 button:hover{
     transform:scale(1.05);
+    box-shadow:0 0 25px rgba(255,255,255,.5);
 }
 
 /* ========================= */
@@ -81,116 +85,12 @@ button:hover{
 /* ========================= */
 
 .scene{
-
     min-height:100vh;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
     padding:70px 25px;
-
-}
-
-.scene img{
-
-    width:90%;
-
-    max-width:950px;
-
-    border-radius:18px;
-
-    margin-bottom:45px;
-
-    box-shadow:0 0 40px rgba(255,255,255,.12);
-
-}
-
-.texto{
-
-    max-width:900px;
-
-    text-align:center;
-
-}
-
-.texto h2{
-
-    font-size:46px;
-
-    margin-bottom:25px;
-
-}
-
-.texto p{
-
-    font-size:24px;
-
-    line-height:1.8;
-
-    opacity:.9;
-
-}
-
-/* ========================= */
-/* CELULAR */
-/* ========================= */
-
-@media(max-width:768px){
-
-.hero h1{
-
-    font-size:42px;
-
-}
-
-#textoHero{
-
-    font-size:20px;
-
-}
-
-.hero-frase{
-
-    font-size:22px;
-
-}
-
-button{
-
-    width:100%;
-
-    font-size:20px;
-
-}
-
-.scene img{
-
-    width:100%;
-
-}
-
-.texto h2{
-
-    font-size:32px;
-
-}
-
-.texto p{
-
-    font-size:19px;
-
-}
-
-}/* ========================= */
-/* APARICION SUAVE AL SCROLL */
-/* ========================= */
-
-.scene{
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1s ease, transform 1s ease;
@@ -200,6 +100,39 @@ button{
     opacity: 1;
     transform: translateY(0);
 }
+
+.scene img{
+    width:90%;
+    max-width:950px;
+    border-radius:18px;
+    margin-bottom:45px;
+    box-shadow:0 0 40px rgba(255,255,255,.12);
+    transition: box-shadow .6s ease;
+}
+
+.scene.visible img{
+    box-shadow:0 0 60px rgba(255,255,255,.22);
+}
+
+.texto{
+    max-width:900px;
+    text-align:center;
+}
+
+.texto h2{
+    font-family:'Playfair Display', Georgia, serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:46px;
+    margin-bottom:25px;
+}
+
+.texto p{
+    font-size:24px;
+    line-height:1.8;
+    opacity:.9;
+}
+
 /* ========================= */
 /* CARTA */
 /* ========================= */
@@ -216,18 +149,81 @@ button{
 }
 
 .carta-apertura{
-    font-size: 44px !important;
-    font-style: italic;
+    font-family:'Dancing Script', cursive;
+    font-size: 64px !important;
+    font-style: normal;
     margin-bottom: 30px;
     opacity: 1 !important;
 }
 
+/* ========================= */
+/* CIERRE FINAL - TE AMO */
+/* ========================= */
+
+.final-love{
+    margin-top: 40px;
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size: 90px;
+    color: #fff;
+    text-shadow:
+        0 0 15px rgba(255,255,255,.6),
+        0 0 40px rgba(255,80,120,.55);
+    animation: latido 2.2s ease-in-out infinite;
+}
+
+@keyframes latido{
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+/* ========================= */
+/* CELULAR */
+/* ========================= */
+
 @media(max-width:768px){
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    #textoHero{
+        font-size:20px;
+    }
+
+    .hero-frase{
+        font-size:22px;
+    }
+
+    button{
+        width:100%;
+        font-size:20px;
+    }
+
+    .scene img{
+        width:100%;
+    }
+
+    .texto h2{
+        font-size:32px;
+    }
+
+    .texto p{
+        font-size:19px;
+    }
+
     .carta p{
         font-size: 21px;
         line-height: 1.8;
     }
+
     .carta-apertura{
-        font-size: 30px !important;
+        font-size: 44px !important;
     }
+
+    .final-love{
+        font-size: 48px;
+    }
+
 }
