@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -11,20 +11,20 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth; /* Hace que el desplazamiento sea fluido */
-        }
-
         body {
             background-color: #0b0c10;
             color: #c5c6c7;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow-x: hidden;
             position: relative;
+            padding: 20px;
         }
 
-        /* Fondo Estrellado */
+        /* Estrellas de fondo */
         #stars {
             position: fixed;
             top: 0;
@@ -51,28 +51,27 @@
 
         .container {
             position: relative;
-            z-index: 1;
-            width: 90%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            z-index: 10;
+            width: 100%;
+            max-width: 800px;
             text-align: center;
         }
 
-        /* Seccion Hero / Portada */
-        .hero-content {
-            min-height: 100vh; /* Ocupa toda la pantalla de inicio */
+        /* Pantalla 1: Portada Inicial */
+        #pantalla-inicio {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 25px;
+            min-height: 70vh;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: #66fcf1;
             text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+            margin: 0;
         }
 
         .subtitle {
@@ -84,8 +83,7 @@
         }
 
         .btn-start {
-            margin-top: 25px;
-            padding: 15px 35px;
+            padding: 16px 36px;
             font-size: 1.1rem;
             font-weight: bold;
             color: #0b0c10;
@@ -93,38 +91,36 @@
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .btn-start:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
             background-color: #ffffff;
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
         }
 
-        /* Seccion Destino del Clic */
-        #galeria {
-            min-height: 100vh;
-            padding: 60px 0;
-            display: flex;
+        /* Pantalla 2: Galería / Recuerdos (Oculta al principio) */
+        #pantalla-recuerdos {
+            display: none; /* Se activa al hacer clic */
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
+            text-align: left;
+            width: 100%;
+            padding: 20px 0;
         }
 
         .card {
-            background: rgba(31, 40, 51, 0.85);
-            border: 1px solid rgba(102, 252, 241, 0.2);
+            background: rgba(31, 40, 51, 0.9);
+            border: 1px solid rgba(102, 252, 241, 0.3);
             border-radius: 15px;
             padding: 30px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            text-align: left;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
         }
 
         .card h2 {
             color: #66fcf1;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-size: 1.6rem;
         }
 
@@ -134,10 +130,22 @@
             font-size: 1.1rem;
         }
 
+        /* Boton para volver al inicio opcional */
+        .btn-volver {
+            align-self: center;
+            margin-top: 15px;
+            background: transparent;
+            border: 1px solid #45a29e;
+            color: #45a29e;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .subtitle { font-size: 1rem; }
-            .container { width: 95%; }
+            .card { padding: 20px; }
         }
     </style>
 </head>
@@ -146,33 +154,35 @@
     <div id="stars"></div>
 
     <div class="container">
-        <!-- Portada Inicial -->
-        <section class="hero-content">
+        <!-- PANTALLA 1: PORTADA -->
+        <div id="pantalla-inicio">
             <h1>Para Anto ❤️</h1>
             <p class="subtitle">"Cada paso de nuestro viaje es un recuerdo que guardo para siempre."</p>
-            <button class="btn-start" id="btnComenzar">
+            <button class="btn-start" onclick="mostrarRecuerdos()">
                 Comenzar nuestro viaje
             </button>
-        </section>
+        </div>
 
-        <!-- Seccion a la que baja el boton -->
-        <main id="galeria">
+        <!-- PANTALLA 2: CONTENIDO (SE ACTIVA AL HACER CLIC) -->
+        <div id="pantalla-recuerdos">
             <div class="card">
                 <h2>Nuestro Viaje Juntos</h2>
-                <p>Acá podés escribir el primer mensaje o recuerdo especial para Anto.</p>
+                <p>Escribí acá tu mensaje principal o la deducción que quieras expresarle a Anto.</p>
             </div>
 
             <div class="card">
-                <h2>Otro Momento Especial</h2>
-                <p>Acá podés seguir sumando texto o fotos de sus momentos.</p>
+                <h2>Un Momento Especial</h2>
+                <p>Acá podés agregar otra reseña, fecha especial o historia que quieras compartir.</p>
             </div>
-        </main>
+
+            <button class="btn-volver" onclick="mostrarInicio()">← Volver al inicio</button>
+        </div>
     </div>
 
     <script>
-        // Animacion de estrellas
+        // Estrellas
         const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 70; i++) {
+        for (let i = 0; i < 60; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
             star.style.width = `${Math.random() * 3 + 1}px`;
@@ -183,11 +193,18 @@
             starsContainer.appendChild(star);
         }
 
-        // Script para asegurar que el boton SIEMPRE baje
-        document.getElementById('btnComenzar').addEventListener('click', function() {
-            const destino = document.getElementById('galeria');
-            destino.scrollIntoView({ behavior: 'smooth' });
-        });
+        // Cambio de pantallas al hacer clic
+        function mostrarRecuerdos() {
+            document.getElementById('pantalla-inicio').style.display = 'none';
+            document.getElementById('pantalla-recuerdos').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        function mostrarInicio() {
+            document.getElementById('pantalla-recuerdos').style.display = 'none';
+            document.getElementById('pantalla-inicio').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
     </script>
 </body>
 </html>
